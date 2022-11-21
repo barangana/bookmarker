@@ -1,7 +1,13 @@
 import { NextPage } from 'next'
+import { Header } from '../components'
 
 const Home: NextPage = () => {
-  return <div>Hello World</div>
+  return (
+    <div>
+      <Header />
+      Hello World
+    </div>
+  )
 }
 
 export default Home

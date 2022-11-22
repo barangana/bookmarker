@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client'
 import { GetServerSideProps, NextPage } from 'next'
 import { Book } from '../utils/types'
 import { Layout } from '../components'
+import { Cards } from '../components'
 
 //TODO: Once Next13 has a stable build, migrate to Next13 data fetching
 //TODO: Figure out how when user logs in, they get all their books.
@@ -15,10 +16,13 @@ const Books: NextPage<BooksProps> = ({ books }) => {
   console.log(books)
   return (
     <Layout>
-      Books PAGE
-      {books.map((book) => (
-        <div>{book.title}</div>
-      ))}
+      <div className='container mx-auto'>
+        <div className='mt-12 grid grid-cols-5 grid-rows-1 '>
+          {books.map((book) => (
+            <Cards key={book.id} data={book} />
+          ))}
+        </div>
+      </div>
     </Layout>
   )
 }

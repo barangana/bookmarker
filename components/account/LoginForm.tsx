@@ -14,6 +14,7 @@ export const LoginForm = () => {
     username: '',
     password: '',
   })
+  const [message, setMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,6 +27,7 @@ export const LoginForm = () => {
 
     if (res?.error) {
       console.log('error')
+      setMessage('error')
     } else {
       router.push('/')
     }
@@ -51,6 +53,7 @@ export const LoginForm = () => {
                 setFormInfo({ ...formInfo, password: e.target.value })
               }
             />
+            <p>{message}</p>
             <div className='flex justify-between w-44 pt-6 pb-12'>
               <Button variant='primary'>login</Button>
               <Button>register</Button>

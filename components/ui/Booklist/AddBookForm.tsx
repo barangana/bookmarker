@@ -7,6 +7,10 @@ interface FormData {
   finished: boolean
 }
 
+//TODO: Refactor whole form so it does not look like copy paste
+//TODO: Refactor functions and put them outside as utils
+//TODO: Readd type when 'type' is added to DB
+
 const addBook = async (data: FormData) => {
   console.log(data)
   try {

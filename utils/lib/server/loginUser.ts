@@ -10,9 +10,15 @@ export const loginUser = async ({
   username,
   password,
 }: UserLoginData): Promise<{ user: User | null }> => {
-  console.log(username)
   const user = await prisma.user.findUnique({
     where: { username },
   })
+
+  if (!user) {
+    return {
+      user: null,
+    }
+  }
+
   return { user }
 }

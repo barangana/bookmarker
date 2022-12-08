@@ -1,9 +1,8 @@
 import React from 'react'
 import { AddBookForm, Layout } from '../components'
+import { NextPage } from 'next'
 
-type Props = {}
-
-const AddBook = (props: Props) => {
+const AddBook: NextPage = () => {
   return (
     <Layout>
       <AddBookForm />

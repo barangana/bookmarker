@@ -25,7 +25,6 @@ export default NextAuth({
         // add db look up here
         // call loginUser function
         const { user } = await loginUser(credentials!)
-        console.log(user)
         return user
       },
     }),
@@ -41,9 +40,11 @@ export default NextAuth({
       }
       return token
     },
-    // find a way to get the id from session...
-    // https://next-auth.js.org/getting-started/typescript
-    session: ({ session, token }) => {
+
+    session: async ({ session, token }) => {
+      if (session) {
+        session.user.id = token.sub ? token.sub : ''
+      }
       return session
     },
   },

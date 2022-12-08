@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { getSession } from 'next-auth/react'
 
 interface FormData {
   title: string
@@ -12,7 +13,6 @@ interface FormData {
 //TODO: Readd type when 'type' is added to DB
 
 const addBook = async (data: FormData) => {
-  console.log(data)
   try {
     fetch('http://localhost:3000/api/add', {
       body: JSON.stringify(data),
@@ -32,7 +32,7 @@ const handleSubmit = async (data: FormData) => {
   }
 }
 
-export const AddBookForm = () => {
+export const AddBookForm: React.FC = () => {
   const [form, setForm] = useState<FormData>({
     title: '',
     pages: 0,
@@ -45,7 +45,6 @@ export const AddBookForm = () => {
         onSubmit={(e) => {
           e.preventDefault()
           handleSubmit(form)
-          // console.log(form)
         }}
       >
         <div className='flex flex-col items-center'>

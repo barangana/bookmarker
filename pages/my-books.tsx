@@ -1,7 +1,8 @@
 import React from 'react'
 import { PrismaClient } from '@prisma/client'
+import { getSession } from 'next-auth/react'
 import { GetServerSideProps, NextPage } from 'next'
-import { Book } from '../utils/types'
+import { Book } from '../utils/types/types'
 import { Layout } from '../components'
 import { Cards } from '../components'
 
@@ -13,7 +14,6 @@ interface BooksProps {
 }
 
 const Books: NextPage<BooksProps> = ({ books }) => {
-  console.log(books)
   return (
     <Layout>
       <div className='container mx-auto'>
@@ -29,11 +29,14 @@ const Books: NextPage<BooksProps> = ({ books }) => {
 
 export default Books
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const prisma = new PrismaClient()
+  const session = await getSession({ req: context.req })
 
   const books = await prisma.books.findMany({
-    where: { userId: '212e227c-1b1e-4462-9e7c-bf4adc89a968' },
+    where: {
+      userId: session?.user.id,
+    },
   })
   return {
     props: { books },

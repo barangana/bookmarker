@@ -10,3 +10,4 @@ export * from './ui/Booklist/AddBookForm'
 export * from './ui/Booklist/Cards'
 
 export * from './account/LoginForm'
+export * from './account/RegisterForm'

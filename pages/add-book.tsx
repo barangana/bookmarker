@@ -1,13 +1,26 @@
 import React from 'react'
 import { AddBookForm, Layout } from '../components'
-import { NextPage } from 'next'
+import { getSession } from 'next-auth/react'
+import { GetServerSideProps, NextPage } from 'next'
 
-const AddBook: NextPage = () => {
+interface AddBookProps {
+  sessionId: string
+}
+
+const AddBook: NextPage<AddBookProps> = ({ sessionId }) => {
   return (
     <Layout>
-      <AddBookForm />
+      <AddBookForm sessionId={sessionId} />
     </Layout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
+  const session = await getSession({ req: context.req })
+  const sessionId = session?.user.id
+  return {
+    props: { sessionId },
+  }
 }
 
 export default AddBook

@@ -1,16 +1,19 @@
 import { useState } from 'react'
-import { getSession } from 'next-auth/react'
-
-interface FormData {
-  title: string
-  pages: number
-  // type: string
-  finished: boolean
-}
 
 //TODO: Refactor whole form so it does not look like copy paste
 //TODO: Refactor functions and put them outside as utils
 //TODO: Readd type when 'type' is added to DB
+
+interface FormData {
+  userId: string
+  title: string
+  pages: number
+  finished: boolean
+}
+
+interface AddBookFormProps {
+  sessionId: string
+}
 
 const addBook = async (data: FormData) => {
   try {
@@ -32,11 +35,11 @@ const handleSubmit = async (data: FormData) => {
   }
 }
 
-export const AddBookForm: React.FC = () => {
+export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
   const [form, setForm] = useState<FormData>({
+    userId: sessionId,
     title: '',
     pages: 0,
-    // type: '',
     finished: false,
   })
   return (

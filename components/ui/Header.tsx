@@ -17,6 +17,9 @@ export const Header = () => {
           <Link href='/my-books' passHref>
             my books
           </Link>
+          <Link href='/login' passHref>
+            login
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { addBook } from '../../../utils/lib/client/book-functions'
 
 //TODO: Refactor whole form so it does not look like copy paste
 //TODO: Refactor functions and put them outside as utils
@@ -13,18 +14,6 @@ interface FormData {
 
 interface AddBookFormProps {
   sessionId: string
-}
-
-const addBook = async (data: FormData) => {
-  try {
-    fetch('http://localhost:3000/api/add', {
-      body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
-    })
-  } catch (error) {
-    console.log(error)
-  }
 }
 
 const handleSubmit = async (data: FormData) => {

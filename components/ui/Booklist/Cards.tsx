@@ -1,9 +1,9 @@
 import React from 'react'
 import { Book } from '../../../utils/types/types'
 import text from '../../../utils/text.json'
-import { BsHeartFill, BsHeart } from 'react-icons/bs'
-import { CiCircleRemove } from 'react-icons/ci'
+import { BsHeartFill } from 'react-icons/bs'
 import Link from 'next/link'
+import { deleteBook } from '../../../utils/lib/client/book-functions'
 import { useRouter } from 'next/router'
 
 type CardsProps = {
@@ -18,14 +18,13 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
   const refreshPage = () => {
     router.replace(router.asPath)
   }
-  const deleteBook = async (id: number) => {
+
+  const handleDelete = async (id: number) => {
     try {
-      fetch(`http://localhost:3000/api/books/${id}`, {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'DELETE',
-      })
+      deleteBook(data.id)
       refreshPage()
     } catch (error) {
+      // Replace with Sentry eventually
       console.log(error)
     }
   }
@@ -34,7 +33,7 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
       <div className='w-72 h-72 bg-sky-100 rounded-xl'>
         <div className='flex flex-row px-4 py-2 justify-between'>
           <BsHeartFill />
-          <button onClick={() => deleteBook(data.id)}>delete</button>
+          <button onClick={() => handleDelete(data.id)}>delete</button>
         </div>
         <div className='pl-4'>
           <h3 className='text-2xl font-semibold pt-6'>{data.title}</h3>

@@ -1,9 +1,4 @@
-export interface FormData {
-  userId: string
-  title: string
-  pages: number
-  finished: boolean
-}
+import { FormData } from '../../types/types'
 
 export const addBook = async (data: FormData) => {
   try {

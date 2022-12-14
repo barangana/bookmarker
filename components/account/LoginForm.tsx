@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button } from '../ui/Button'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 interface UserInfo {
   username: string
@@ -56,7 +57,13 @@ export const LoginForm = () => {
             <p>{message}</p>
             <div className='flex justify-between w-44 pt-6 pb-12'>
               <Button variant='primary'>login</Button>
-              <Button>register</Button>
+              <Link
+                className='rounded-full bg-blue-400 p-3 px-6 text-xs'
+                href='/signup'
+                passHref
+              >
+                register
+              </Link>
             </div>
           </div>
         </form>

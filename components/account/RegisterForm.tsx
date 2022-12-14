@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 interface RegisterFormData {
@@ -18,22 +20,23 @@ const signupUser = async (data: RegisterFormData) => {
   }
 }
 
-const handleSubmit = async (data: RegisterFormData) => {
-  try {
-    signupUser(data)
-    // console.log(data)
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 export const RegisterForm: React.FC = () => {
+  const { push } = useRouter()
   const [formInfo, setFormInfo] = useState<RegisterFormData>({
     email: '',
     username: '',
     password: '',
   })
   const [message, setMessage] = useState('')
+
+  const handleSubmit = async (data: RegisterFormData) => {
+    try {
+      signupUser(data)
+      push('/')
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='grid place-items-center h-screen bg-sky-100'>
@@ -69,15 +72,18 @@ export const RegisterForm: React.FC = () => {
             />
             <p>{message}</p>
             <div className='flex justify-between w-44 pt-6 pb-12'>
-              <button className='rounded-full bg-blue-200 p-3 px-6 text-xs'>
-                login
-              </button>
               <button
                 className='rounded-full bg-blue-200 p-3 px-6 text-xs'
                 type='submit'
               >
                 register
               </button>
+              <Link
+                className='rounded-full bg-blue-400 p-3 px-6 text-xs'
+                href='/login'
+              >
+                login
+              </Link>
             </div>
           </div>
         </form>

@@ -1,36 +1,34 @@
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { addBook } from '../../../utils/lib/client/book-functions'
+import { FormData } from '../../../utils/types/types'
 
 //TODO: Refactor whole form so it does not look like copy paste
-//TODO: Refactor functions and put them outside as utils
-//TODO: Readd type when 'type' is added to DB
-
-interface FormData {
-  userId: string
-  title: string
-  pages: number
-  finished: boolean
-}
 
 interface AddBookFormProps {
   sessionId: string
 }
 
-const handleSubmit = async (data: FormData) => {
-  try {
-    addBook(data)
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
+  const { push } = useRouter()
+
   const [form, setForm] = useState<FormData>({
     userId: sessionId,
     title: '',
     pages: 0,
-    finished: false,
+    type: '',
+    completed: false,
   })
+
+  const handleSubmit = async (data: FormData) => {
+    try {
+      addBook(data)
+      push('/my-books')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className='container mx-auto grid place-items-center h-screen bg-sky-100'>
       <form
@@ -54,17 +52,17 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
               setForm({ ...form, pages: e.target.valueAsNumber })
             }
           />
-          {/* <label>type of book</label>
+          <label>type of book</label>
           <input
             className='rounded-full mb-4 pl-3'
             value={form.type}
             onChange={(e) => setForm({ ...form, type: e.target.value })}
-          /> */}
+          />
           <label>completed?</label>
           <input
             className='rounded-full mb-4 pl-3'
             type='checkbox'
-            // value={form.completed}
+            onChange={(e) => setForm({ ...form, completed: e.target.checked })}
           />
           <div>
             <button

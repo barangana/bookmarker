@@ -7,7 +7,7 @@ import { Layout } from '../components'
 import { Cards } from '../components'
 
 //TODO: Once Next13 has a stable build, migrate to Next13 data fetching
-//TODO: Figure out how when user logs in, they get all their books.
+//TODO: If books is empty, show a message that should allow user to add books
 
 interface BooksProps {
   books: [Book]

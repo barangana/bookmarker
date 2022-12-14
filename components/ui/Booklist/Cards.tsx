@@ -37,14 +37,14 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
         </div>
         <div className='pl-4'>
           <h3 className='text-2xl font-semibold pt-6'>{data.title}</h3>
-          <div>type of book: </div>
+          <div>type of book: {data.type}</div>
           <div className='pt-6'>
             {text.booklist_nb_pages}: {data.pages}
           </div>
           <div>{text.booklist_last_left}: </div>
           <div className='pt-16'>
             {text.booklist_status}:
-            {data.finished === true ? ' completed' : ' not completed'}
+            {data.completed === true ? ' completed' : ' not completed'}
           </div>
         </div>
       </div>

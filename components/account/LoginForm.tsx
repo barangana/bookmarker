@@ -3,6 +3,7 @@ import { Button } from '../ui/Button'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { Input } from '../ui/Input'
 
 interface UserInfo {
   username: string
@@ -11,6 +12,7 @@ interface UserInfo {
 
 export const LoginForm = () => {
   const router = useRouter()
+
   const [formInfo, setFormInfo] = useState<UserInfo>({
     username: '',
     password: '',
@@ -40,15 +42,13 @@ export const LoginForm = () => {
         <form onSubmit={handleSubmit}>
           <div className='flex flex-col items-center'>
             <label>username</label>
-            <input
-              className='rounded-full mb-4 pl-3'
+            <Input
               onChange={(e) =>
                 setFormInfo({ ...formInfo, username: e.target.value })
               }
             />
             <label>password</label>
-            <input
-              className='rounded-full mb-4 pl-3'
+            <Input
               type='password'
               onChange={(e) =>
                 setFormInfo({ ...formInfo, password: e.target.value })

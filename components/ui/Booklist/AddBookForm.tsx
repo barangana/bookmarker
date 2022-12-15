@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { addBook } from '../../../utils/lib/client/book-functions'
 import { FormData } from '../../../utils/types/types'
+import { Button } from '../Button'
+import { Input } from '../Input'
 
 //TODO: Refactor whole form so it does not look like copy paste
 
@@ -25,7 +27,7 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
       addBook(data)
       push('/my-books')
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
@@ -39,38 +41,25 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
       >
         <div className='flex flex-col items-center'>
           <label>book title</label>
-          <input
-            className='rounded-full mb-4 pl-3'
-            value={form.title}
+          <Input
             onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
           <label>page number</label>
-          <input
-            className='rounded-full mb-4 pl-3'
+          <Input
             type='number'
             onChange={(e) =>
               setForm({ ...form, pages: e.target.valueAsNumber })
             }
           />
           <label>type of book</label>
-          <input
-            className='rounded-full mb-4 pl-3'
-            value={form.type}
-            onChange={(e) => setForm({ ...form, type: e.target.value })}
-          />
+          <Input onChange={(e) => setForm({ ...form, type: e.target.value })} />
           <label>completed?</label>
-          <input
-            className='rounded-full mb-4 pl-3'
+          <Input
             type='checkbox'
             onChange={(e) => setForm({ ...form, completed: e.target.checked })}
           />
           <div>
-            <button
-              className='rounded-full bg-blue-200 p-3 px-6 text-xs'
-              type='submit'
-            >
-              add book
-            </button>
+            <Button type='submit'>add book</Button>
           </div>
         </div>
       </form>

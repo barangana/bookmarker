@@ -35,7 +35,6 @@ export const RegisterForm: React.FC = () => {
       push('/')
     } catch (error) {
       setMessage('something went wrong')
-      console.log(error)
     }
   }
 

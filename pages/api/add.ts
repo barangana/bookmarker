@@ -3,12 +3,15 @@ import { prisma } from '../../utils/prisma'
 
 export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { userId, title, pages, type, completed } = req.body
+    const { userId, title, pages, pageLeftOff, favorite, type, completed } =
+      req.body
     await prisma.books.create({
       data: {
         userId,
         title,
+        pageLeftOff,
         pages,
+        favorite,
         type,
         completed,
       },

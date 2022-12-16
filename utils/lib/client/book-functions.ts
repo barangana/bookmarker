@@ -22,3 +22,14 @@ export const deleteBook = async (id: number) => {
     console.log(error)
   }
 }
+
+export const favoriteBook = async (id: number) => {
+  try {
+    fetch(`http://localhost:3000/api/books/${id}`, {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'PUT',
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}

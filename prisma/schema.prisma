@@ -16,11 +16,13 @@ model User {
 }
 
 model Books {
-  id        Int     @id @default(autoincrement())
-  title     String
-  pages     Int
-  completed Boolean
-  type      String
-  User      User?   @relation(fields: [userId], references: [id])
-  userId    String?
+  id          Int     @id @default(autoincrement())
+  title       String
+  pages       Int
+  pageLeftOff Int
+  completed   Boolean
+  favorite    Boolean
+  type        String
+  User        User?   @relation(fields: [userId], references: [id])
+  userId      String?
 }

@@ -18,8 +18,10 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
     userId: sessionId,
     title: '',
     pages: 0,
-    type: '',
+    pageLeftOff: 0,
     completed: false,
+    favorite: false,
+    type: '',
   })
 
   const handleSubmit = async (data: FormData) => {
@@ -49,6 +51,13 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
             type='number'
             onChange={(e) =>
               setForm({ ...form, pages: e.target.valueAsNumber })
+            }
+          />
+          <label>latest page read</label>
+          <Input
+            type='number'
+            onChange={(e) =>
+              setForm({ ...form, pageLeftOff: e.target.valueAsNumber })
             }
           />
           <label>type of book</label>

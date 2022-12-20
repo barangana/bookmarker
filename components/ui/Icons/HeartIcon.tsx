@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { RiHeartLine, RiHeartFill } from 'react-icons/ri'
 import { favoriteBook } from '../../../utils/lib/client/book-functions'
 
@@ -15,13 +14,11 @@ export const HeartIcon: React.FC<HeartIconProps> = ({ id, favorite }) => {
     favoriteBook(id)
   }
 
-  return favorite ? (
+  console.log(favorite)
+
+  return (
     <button onClick={handleClick}>
-      <RiHeartFill />
-    </button>
-  ) : (
-    <button onClick={handleClick}>
-      <RiHeartLine />
+      {favorite ? <RiHeartFill /> : <RiHeartLine />}
     </button>
   )
 }

@@ -12,37 +12,32 @@ export const Header = () => {
     router.push('/')
   }
 
-  return status === 'authenticated' ? (
+  return (
     <div className='container mx-auto p-6 bg-sky-200'>
       <div className='flex items-center justify-between'>
         <Link href='/' passHref>
           APP NAME
         </Link>
-        <div className='space-x-6'>
-          <Link href='/add-book' passHref>
-            add book
-          </Link>
-          <Link href='/my-books' passHref>
-            my books
-          </Link>
-          <button onClick={handleLogout}>logout</button>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div className='container mx-auto p-6 bg-sky-200'>
-      <div className='flex items-center justify-between'>
-        <Link href='/' passHref>
-          APP NAME
-        </Link>
-        <div className='space-x-6'>
-          <Link href='/login' passHref>
-            login
-          </Link>
-          <Link href='/signup' passHref>
-            register
-          </Link>
-        </div>
+        {status === 'authenticated' ? (
+          <div className='space-x-6'>
+            <Link href='/add-book' passHref>
+              add book
+            </Link>
+            <Link href='/my-books' passHref>
+              my books
+            </Link>
+            <button onClick={handleLogout}>logout</button>
+          </div>
+        ) : (
+          <div className='space-x-6'>
+            <Link href='/login' passHref>
+              login
+            </Link>
+            <Link href='/signup' passHref>
+              register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )

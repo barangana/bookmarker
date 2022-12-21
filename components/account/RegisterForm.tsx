@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import text from '../../utils/text.json'
 
 interface RegisterFormData {
   email: string
@@ -48,21 +49,21 @@ export const RegisterForm: React.FC = () => {
           }}
         >
           <div className='flex flex-col items-center'>
-            <label>email</label>
+            <label>{text.email}</label>
             <input
               className='rounded-full mb-4 pl-3'
               onChange={(e) =>
                 setFormInfo({ ...formInfo, email: e.target.value })
               }
             />
-            <label>username</label>
+            <label>{text.username}</label>
             <input
               className='rounded-full mb-4 pl-3'
               onChange={(e) =>
                 setFormInfo({ ...formInfo, username: e.target.value })
               }
             />
-            <label>password</label>
+            <label>{text.password}</label>
             <input
               className='rounded-full mb-4 pl-3'
               type='password'
@@ -76,13 +77,13 @@ export const RegisterForm: React.FC = () => {
                 className='rounded-full bg-blue-200 p-3 px-6 text-xs'
                 type='submit'
               >
-                register
+                {text.register}
               </button>
               <Link
                 className='rounded-full bg-blue-400 p-3 px-6 text-xs'
                 href='/login'
               >
-                login
+                {text.login}
               </Link>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import text from '../../utils/text.json'
 
 export const Header = () => {
   const { status } = useSession()
@@ -16,25 +17,25 @@ export const Header = () => {
     <div className='container mx-auto p-6 bg-sky-200'>
       <div className='flex items-center justify-between'>
         <Link href='/' passHref>
-          APP NAME
+          {text.app_name}
         </Link>
         {status === 'authenticated' ? (
           <div className='space-x-6'>
             <Link href='/add-book' passHref>
-              add book
+              {text.add_book}
             </Link>
             <Link href='/my-books' passHref>
-              my books
+              {text.my_books}
             </Link>
-            <button onClick={handleLogout}>logout</button>
+            <button onClick={handleLogout}>{text.logout}</button>
           </div>
         ) : (
           <div className='space-x-6'>
             <Link href='/login' passHref>
-              login
+              {text.login}
             </Link>
             <Link href='/signup' passHref>
-              register
+              {text.register}
             </Link>
           </div>
         )}

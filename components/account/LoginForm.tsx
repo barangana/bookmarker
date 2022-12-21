@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Input } from '../ui/Input'
+import text from '../../utils/text.json'
 
 interface UserInfo {
   username: string
@@ -41,13 +42,13 @@ export const LoginForm = () => {
       <div className='container mx-auto'>
         <form onSubmit={handleSubmit}>
           <div className='flex flex-col items-center'>
-            <label>username</label>
+            <label>{text.username}</label>
             <Input
               onChange={(e) =>
                 setFormInfo({ ...formInfo, username: e.target.value })
               }
             />
-            <label>password</label>
+            <label>{text.password}</label>
             <Input
               type='password'
               onChange={(e) =>
@@ -56,13 +57,13 @@ export const LoginForm = () => {
             />
             <p>{message}</p>
             <div className='flex justify-between w-44 pt-6 pb-12'>
-              <Button variant='primary'>login</Button>
+              <Button variant='primary'>{text.login}</Button>
               <Link
                 className='rounded-full bg-blue-400 p-3 px-6 text-xs'
                 href='/signup'
                 passHref
               >
-                register
+                {text.register}
               </Link>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { addBook } from '../../../utils/lib/client/book-functions'
 import { FormData } from '../../../utils/types/types'
 import { Button } from '../Button'
 import { Input } from '../Input'
+import text from '../../../utils/text.json'
 
 //TODO: Refactor whole form so it does not look like copy paste
 
@@ -42,33 +43,33 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({ sessionId }) => {
         }}
       >
         <div className='flex flex-col items-center'>
-          <label>book title</label>
+          <label>{text.book_title}</label>
           <Input
             onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
-          <label>page number</label>
+          <label>{text.page_number}</label>
           <Input
             type='number'
             onChange={(e) =>
               setForm({ ...form, pages: e.target.valueAsNumber })
             }
           />
-          <label>latest page read</label>
+          <label>{text.latest_page}</label>
           <Input
             type='number'
             onChange={(e) =>
               setForm({ ...form, pageLeftOff: e.target.valueAsNumber })
             }
           />
-          <label>type of book</label>
+          <label>{text.book_type}</label>
           <Input onChange={(e) => setForm({ ...form, type: e.target.value })} />
-          <label>completed?</label>
+          <label>{text.completed}</label>
           <Input
             type='checkbox'
             onChange={(e) => setForm({ ...form, completed: e.target.checked })}
           />
           <div>
-            <Button type='submit'>add book</Button>
+            <Button type='submit'>{text.add_book}</Button>
           </div>
         </div>
       </form>

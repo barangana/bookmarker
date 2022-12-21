@@ -1,6 +1,23 @@
 {
-  "app_name": "APP NAME",
-  "booklist_nb_pages": "nb of pages",
-  "booklist_last_left": "last left off",
-  "booklist_status": "status"
+  "app_name": "bookmarker",
+  "add_book": "add book",
+  "my_books": "my books",
+  "login": "login",
+  "logout": "logout",
+  "register": "register",
+  "copyrights": " Bookmarker, All rights reserved",
+  "username": "username",
+  "password": "password",
+  "email": "email",
+  "book_title": "book title",
+  "page_number": "page number",
+  "latest_page": "latest page read",
+  "book_type": "type of book",
+  "completed": "completed?",
+  "booklist_nb_pages": "number of pages",
+  "booklist_type_of_book": "type of book",
+  "booklist_status": "status",
+  "hero_title": "The app for your home library.",
+  "hero_description": "Save all your favorite books in one place. Continue reading from where you last took off without a physical bookmark. Create notes about your books — Bookmarker is your digital library.",
+  "hero_button": "Create an account"
 }

@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
+import text from '../../utils/text.json'
 
-//TODO: Change placholder image once done, fix responsiveness
+//TODO: Change placholder image once done, fix responsiveness, make the title and text into components possibly?
 
 export const Features = () => {
   return (
@@ -17,23 +18,12 @@ export const Features = () => {
         </div>
         <div>
           <div className='my-36'>
-            <div className='font-bold'>Save your books in one place</div>
-            <div className='mb-6 lg:w-96'>
-              Bookmarker allows you to store all the books you have read or are
-              reading into one location without ever getting lost.
-            </div>
-            <div className='font-bold'>Bookmark from any device</div>
-            <div className='mb-6 lg:w-96'>
-              Storing your books can be done on PC, Mobile, Tablet, Laptop and
-              more.
-            </div>
-            <div className='font-bold'>
-              Never forget where you last took off
-            </div>
-            <div className='mb-6 lg:w-96'>
-              With Bookmarker, you can save the last page you were reading
-              without having to use a physical bookmark.
-            </div>
+            <div className='font-bold'>{text.features_title_1}</div>
+            <div className='mb-6 lg:w-96'>{text.features_description_1}</div>
+            <div className='font-bold'>{text.features_title_2}</div>
+            <div className='mb-6 lg:w-96'>{text.features_description_2}</div>
+            <div className='font-bold'>{text.features_title_3}</div>
+            <div className='mb-6 lg:w-96'>{text.features_description_3}</div>
           </div>
         </div>
       </div>

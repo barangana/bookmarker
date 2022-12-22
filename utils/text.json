@@ -19,5 +19,11 @@
   "booklist_status": "status",
   "hero_title": "The app for your home library.",
   "hero_description": "Save all your favorite books in one place. Continue reading from where you last took off without a physical bookmark. Create notes about your books — Bookmarker is your digital library.",
-  "hero_button": "Create an account"
+  "hero_button": "Create an account",
+  "features_title_1": "Save your books in one place.",
+  "features_description_1": "Bookmarker allows you to store all the books you have read or are reading into one location without ever getting lost.",
+  "features_title_2": "Bookmark from any device",
+  "features_description_2": "Storing your books can be done on PC, Mobile, Tablet, Laptop and more.",
+  "features_title_3": "Never forget where you last took off",
+  "features_description_3": "With Bookmarker, you can save the last page you were reading without having to use a physical bookmark."
 }

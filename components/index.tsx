@@ -3,7 +3,7 @@ export * from './ui/Button'
 export * from './ui/Input'
 export * from './ui/Footer'
 export * from './ui/Hero'
-export * from './ui/Features'
+export * from './ui/FeaturesSection/Features'
 
 export * from './ui/Icons/HeartIcon'
 

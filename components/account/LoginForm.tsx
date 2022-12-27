@@ -22,6 +22,7 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setMessage('Loading...')
 
     const res = await signIn('credentials', {
       username: formInfo.username,
@@ -29,11 +30,12 @@ export const LoginForm = () => {
       redirect: false,
     })
 
-    if (res?.error) {
-      console.log('error')
-      setMessage('error')
-    } else {
-      router.push('/')
+    if (res) {
+      if (res.error) {
+        setMessage('Invalid username or password')
+      } else {
+        router.push('/my-books')
+      }
     }
   }
 

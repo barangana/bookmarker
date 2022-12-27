@@ -9,7 +9,7 @@ export const Header = () => {
   const router = useRouter()
 
   const handleLogout = () => {
-    signOut({ redirect: true, callbackUrl: '/' })
+    signOut({ redirect: false, callbackUrl: '/' })
     router.push('/')
   }
 

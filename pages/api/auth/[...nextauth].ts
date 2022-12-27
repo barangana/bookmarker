@@ -20,9 +20,15 @@ export default NextAuth({
           type: 'password',
         },
       },
-      async authorize(credentials) {
-        const { user } = await loginUser(credentials!)
-        return user
+      async authorize(
+        credentials: Record<'username' | 'password', string> | undefined | any
+      ) {
+        const { user } = await loginUser(credentials)
+        if (user) {
+          return user
+        } else {
+          return null
+        }
       },
     }),
   ],

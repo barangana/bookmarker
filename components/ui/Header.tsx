@@ -16,9 +16,11 @@ export const Header = () => {
   return (
     <div className='container mx-auto p-6 bg-sky-200'>
       <div className='flex items-center justify-between'>
-        <Link href='/' passHref>
-          {text.app_name}
-        </Link>
+        <div className='text-2xl'>
+          <Link href='/' passHref>
+            {text.app_name}
+          </Link>
+        </div>
         {status === 'authenticated' ? (
           <div className='space-x-6'>
             <Link href='/add-book' passHref>

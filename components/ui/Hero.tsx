@@ -13,7 +13,7 @@ export const Hero = () => {
           <div className='pb-12 text-xl font-semibold'>{text.hero_title}</div>
           <div className='pb-12 w-4/6'>{text.hero_description}</div>
           <Button variant='primary'>
-            <Link href='/register'>{text.hero_button}</Link>
+            <Link href='/signup'>{text.hero_button}</Link>
           </Button>
         </div>
         <div className='my-auto'>IMAGE</div>

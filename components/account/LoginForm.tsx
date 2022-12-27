@@ -42,6 +42,7 @@ export const LoginForm = () => {
       <div className='container mx-auto'>
         <form onSubmit={handleSubmit}>
           <div className='flex flex-col items-center'>
+            <header className='pb-8 font-normal text-4xl'>bookmarker</header>
             <label>{text.username}</label>
             <Input
               onChange={(e) =>

@@ -1,4 +1,5 @@
 import { User } from '@prisma/client'
+import { compare } from 'bcrypt'
 import { prisma } from '../../../utils/prisma'
 
 interface UserLoginData {
@@ -15,6 +16,15 @@ export const loginUser = async ({
   })
 
   if (!user) {
+    return {
+      user: null,
+    }
+  }
+
+  const isValid =
+    password && user.password && (await compare(password, user.password))
+
+  if (!isValid) {
     return {
       user: null,
     }

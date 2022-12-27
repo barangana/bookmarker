@@ -1,5 +1,4 @@
 import NextAuth from 'next-auth'
-import { JWT } from 'next-auth/jwt'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { loginUser } from '../../../utils'
 
@@ -22,8 +21,6 @@ export default NextAuth({
         },
       },
       async authorize(credentials) {
-        // add db look up here
-        // call loginUser function
         const { user } = await loginUser(credentials!)
         return user
       },

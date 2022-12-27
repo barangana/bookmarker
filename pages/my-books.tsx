@@ -16,8 +16,8 @@ interface BooksProps {
 const Books: NextPage<BooksProps> = ({ books }) => {
   return (
     <Layout>
-      <div className='container mx-auto'>
-        <div className='mt-12 grid grid-cols-5 grid-rows-1 '>
+      <div className='container mx-auto my-12'>
+        <div className='grid grid-cols-5 grid-rows-1 '>
           {books.map((book) => (
             <Cards key={book.id} data={book} />
           ))}

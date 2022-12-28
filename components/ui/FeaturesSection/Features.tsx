@@ -7,8 +7,8 @@ import FeatureText from './FeatureText'
 
 export const Features = () => {
   return (
-    <div className='container mx-auto bg-sky-100'>
-      <div className='flex gap-x-12 justify-center'>
+    <div className='container mx-auto '>
+      <div className='flex gap-x-12 justify-center my-16'>
         <div className='pr-16 hidden md:block my-auto'>
           <Image
             src='/images/features.jpg'

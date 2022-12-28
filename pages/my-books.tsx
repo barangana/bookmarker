@@ -16,13 +16,19 @@ interface BooksProps {
 const Books: NextPage<BooksProps> = ({ books }) => {
   return (
     <Layout>
-      <div className='container mx-auto my-12'>
-        <div className='grid grid-cols-5 grid-rows-1 '>
-          {books.map((book) => (
-            <Cards key={book.id} data={book} />
-          ))}
+      {books.length > 0 ? (
+        <div className='container mx-auto my-12'>
+          <div className='grid grid-cols-5 grid-rows-1 '>
+            {books.map((book) => (
+              <Cards key={book.id} data={book} />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className='grid h-screen place-items-center text-2xl'>
+          your book list is empty, begin adding?
+        </div>
+      )}
     </Layout>
   )
 }

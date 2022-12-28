@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import text from '../../utils/text.json'
+import { Button } from '../ui/Button'
 
 interface RegisterFormData {
   email: string
@@ -74,12 +75,9 @@ export const RegisterForm: React.FC = () => {
             />
             <p>{message}</p>
             <div className='flex justify-between w-44 pt-6 pb-12'>
-              <button
-                className='rounded-full bg-blue-200 p-3 px-6 text-xs'
-                type='submit'
-              >
+              <Button variant='primary' type='submit'>
                 {text.register}
-              </button>
+              </Button>
               <Link
                 className='rounded-full bg-blue-400 p-3 px-6 text-xs'
                 href='/login'

@@ -10,11 +10,17 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({ children, variant, type }) => {
   return variant === 'primary' ? (
-    <button className='rounded-full bg-blue-200 p-3 px-6 text-xs' type={type}>
+    <button
+      className='rounded-full bg-blue-200 p-3 px-6 text-xs hover:bg-blue-300'
+      type={type}
+    >
       {children}
     </button>
   ) : (
-    <button className='rounded-full bg-blue-400 p-3 px-6 text-xs' type={type}>
+    <button
+      className='rounded-full bg-blue-400 p-3 px-6 text-xs hover:bg-blue-500'
+      type={type}
+    >
       {children}
     </button>
   )

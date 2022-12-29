@@ -1,5 +1,5 @@
 export interface FormData {
-  userId: string
+  userId?: string
   title: string
   pages: number
   pageLeftOff: number

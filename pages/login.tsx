@@ -8,7 +8,7 @@ const Login = () => {
   const router = useRouter()
 
   if (status === 'authenticated') {
-    router.push('/my-books')
+    router.push('/booklist')
   } else {
     return <LoginForm />
   }

@@ -2,9 +2,9 @@ import React from 'react'
 import { PrismaClient } from '@prisma/client'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps, NextPage } from 'next'
-import { Book } from '../utils/types/types'
-import { Layout } from '../components'
-import { Cards } from '../components'
+import { Book } from '../../utils/types/types'
+import { Layout } from '../../components'
+import { Cards } from '../../components'
 
 //TODO: Once Next13 has a stable build, migrate to Next13 data fetching
 //TODO: If books is empty, show a message that should allow user to add books

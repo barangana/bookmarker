@@ -34,7 +34,7 @@ export const LoginForm = () => {
       if (res.error) {
         setMessage('Invalid username or password')
       } else {
-        router.push('/my-books')
+        router.push('/booklist')
       }
     }
   }

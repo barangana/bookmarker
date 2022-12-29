@@ -26,7 +26,7 @@ export const Header = () => {
             <Link href='/add-book' passHref>
               {text.add_book}
             </Link>
-            <Link href='/my-books' passHref>
+            <Link href='/booklist' passHref>
               {text.my_books}
             </Link>
             <button onClick={handleLogout}>{text.logout}</button>

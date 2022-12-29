@@ -4,6 +4,8 @@ import text from '../../../utils/text.json'
 import { deleteBook } from '../../../utils/lib/client/book-functions'
 import { useRouter } from 'next/router'
 import { HeartIcon } from '../Icons/HeartIcon'
+import Link from 'next/link'
+import { Button } from '../Button'
 
 type CardsProps = {
   data: Book
@@ -11,6 +13,7 @@ type CardsProps = {
 
 // TODO: Potentially add book images?
 // TODO: Change test and test2 into icons (favorite and delete)
+// TODO: Change page number button later
 
 export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
   const router = useRouter()
@@ -35,7 +38,9 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
         <button onClick={() => handleDelete(data.id)}>delete</button>
       </div>
       <div className='pl-4'>
-        <h3 className='text-2xl font-semibold pt-6'>{data.title}</h3>
+        <Link href='/'>
+          <h3 className='text-2xl font-semibold pt-6'>{data.title}</h3>
+        </Link>
         <div>
           {text.booklist_type_of_book}: {data.type}
         </div>
@@ -46,10 +51,13 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
         <div>
           {text.latest_page}: {data.pageLeftOff}
         </div>
-        <div className='pt-16'>
+        <div className='pt-8'>
           {text.booklist_status}:
           {data.completed === true ? ' completed' : ' not completed'}
         </div>
+        <Link href={`/booklist/${data.id.toString()}`}>
+          <Button>Edit</Button>
+        </Link>
       </div>
     </div>
   )

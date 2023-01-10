@@ -8,10 +8,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.json(book)
   }
   if (req.method === 'PUT') {
+    const { title, pages, pageLeftOff, completed, type } = req.body
     const book = await prisma.books.update({
       where: { id: Number(bookId) },
       data: {
-        favorite: true,
+        title,
+        pages,
+        pageLeftOff,
+        completed,
+        type,
       },
     })
     res.json(book)

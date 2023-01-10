@@ -14,6 +14,7 @@ type CardsProps = {
 // TODO: Potentially add book images?
 // TODO: Change test and test2 into icons (favorite and delete)
 // TODO: Change page number button later
+// TODO: Fix when title is too long or other info is too long, card doesnt scale properly
 
 export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
   const router = useRouter()

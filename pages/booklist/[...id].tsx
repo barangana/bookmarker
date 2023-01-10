@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddBookForm, Layout } from '../../components'
+import { BookForm, Layout } from '../../components'
 import { GetServerSideProps, NextPage } from 'next'
 import { Book } from '../../utils/types/types'
 
@@ -8,10 +8,9 @@ interface BookProps {
 }
 
 const Book: NextPage<BookProps> = ({ book }) => {
-  console.log(book)
   return (
     <Layout>
-      <AddBookForm book={book} />
+      <BookForm book={book} mode='edit' bookId={book.id} />
     </Layout>
   )
 }

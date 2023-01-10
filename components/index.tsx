@@ -9,7 +9,7 @@ export * from './ui/Icons/HeartIcon'
 
 export * from './ui/Layout/Layout'
 
-export * from './ui/Booklist/AddBookForm'
+export * from './ui/Booklist/BookForm'
 export * from './ui/Booklist/Cards'
 
 export * from './account/LoginForm'

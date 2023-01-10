@@ -14,8 +14,6 @@ export const HeartIcon: React.FC<HeartIconProps> = ({ id, favorite }) => {
     favoriteBook(id)
   }
 
-  console.log(favorite)
-
   return (
     <button onClick={handleClick}>
       {favorite ? <RiHeartFill /> : <RiHeartLine />}

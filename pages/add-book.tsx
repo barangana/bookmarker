@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddBookForm, Layout } from '../components'
+import { BookForm, Layout } from '../components'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps, NextPage } from 'next'
 
@@ -10,7 +10,7 @@ interface AddBookProps {
 const AddBook: NextPage<AddBookProps> = ({ sessionId }) => {
   return (
     <Layout>
-      <AddBookForm sessionId={sessionId} />
+      <BookForm sessionId={sessionId} />
     </Layout>
   )
 }

@@ -1,6 +1,7 @@
 {
   "app_name": "bookmarker",
   "add_book": "add book",
+  "edit_book": "edit book",
   "my_books": "my books",
   "login": "login",
   "logout": "logout",

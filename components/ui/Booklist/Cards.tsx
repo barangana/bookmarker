@@ -12,9 +12,6 @@ type CardsProps = {
 }
 
 // TODO: Potentially add book images?
-// TODO: Change test and test2 into icons (favorite and delete)
-// TODO: Change page number button later
-// TODO: Fix when title is too long or other info is too long, card doesnt scale properly
 
 export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
   const router = useRouter()
@@ -33,7 +30,7 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
   }
 
   return (
-    <div className='w-72 h-72 bg-sky-100 rounded-xl'>
+    <div className='max-w-sm rounded-lg border bg-sky-200 p-6 shadow-md'>
       <div className='flex flex-row px-4 py-2 justify-between'>
         <HeartIcon id={data.id} favorite={data.favorite} />
         <button onClick={() => handleDelete(data.id)}>delete</button>
@@ -56,9 +53,11 @@ export const Cards: React.FC<CardsProps> = ({ data }: CardsProps) => {
           {text.booklist_status}:
           {data.completed === true ? ' completed' : ' not completed'}
         </div>
-        <Link href={`/booklist/${data.id.toString()}`}>
-          <Button>Edit</Button>
-        </Link>
+        <div className='pt-4'>
+          <Link href={`/booklist/${data.id.toString()}`}>
+            <Button>Edit</Button>
+          </Link>
+        </div>
       </div>
     </div>
   )

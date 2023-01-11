@@ -16,4 +16,5 @@ export type Book = {
   completed: boolean
   favorite: boolean
   type: string
+  userId: string
 }

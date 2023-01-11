@@ -56,6 +56,7 @@ export const BookForm: React.FC<BookFormProps> = ({
         <div className='flex flex-col items-center'>
           <label>{text.book_title}</label>
           <Input
+            // value={book?.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
           <label>{text.page_number}</label>

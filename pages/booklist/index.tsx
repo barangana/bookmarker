@@ -17,10 +17,12 @@ const Books: NextPage<BooksProps> = ({ books }) => {
   return (
     <Layout>
       {books.length > 0 ? (
-        <div className='container mx-auto my-12'>
-          <div className='grid grid-cols-5 grid-rows-1 '>
+        <div className='container mx-auto my-6'>
+          <div className='grid grid-cols-3'>
             {books.map((book) => (
-              <Cards key={book.id} data={book} />
+              <div className='pt-6'>
+                <Cards key={book.id} data={book} />
+              </div>
             ))}
           </div>
         </div>

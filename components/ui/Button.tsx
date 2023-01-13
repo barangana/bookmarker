@@ -8,18 +8,21 @@ interface ButtonProps {
   as?: 'button' | 'a'
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, variant, type }) => {
-  return variant === 'primary' ? (
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  variant,
+  type,
+  onClick,
+}) => {
+  return (
     <button
-      className='rounded-full bg-blue-200 p-3 px-6 text-xs hover:bg-blue-300'
+      className={
+        variant === 'primary'
+          ? 'rounded-full bg-blue-200 p-3 px-6 text-xs hover:bg-blue-300'
+          : 'rounded-full bg-blue-400 p-3 px-6 text-xs hover:bg-blue-500'
+      }
       type={type}
-    >
-      {children}
-    </button>
-  ) : (
-    <button
-      className='rounded-full bg-blue-400 p-3 px-6 text-xs hover:bg-blue-500'
-      type={type}
+      onClick={onClick}
     >
       {children}
     </button>

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PrismaClient } from '@prisma/client'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps, NextPage } from 'next'
 import { Book } from '../../utils/types/types'
-import { Layout } from '../../components'
+import { Input, Layout } from '../../components'
 import { Cards } from '../../components'
 
 //TODO: Once Next13 has a stable build, migrate to Next13 data fetching
@@ -14,23 +14,39 @@ interface BooksProps {
 }
 
 const Books: NextPage<BooksProps> = ({ books }) => {
+  const [search, setSearch] = useState('')
+  const filteredSearch = books.filter((book: Book) =>
+    search !== ''
+      ? book.title.includes(search) || book.type.includes(search)
+      : true
+  )
+  console.log(search)
   return (
     <Layout>
-      {books.length > 0 ? (
-        <div className='container mx-auto my-6'>
+      <div className='container mx-auto my-4'>
+        <h1 className='text-4xl'>your books</h1>
+        <div className='flex flex-col my-4'>
+          <label className='mb-2'>filter by name or title</label>
+          <input
+            className='rounded-full bg-sky-200 pl-4'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        {books.length > 0 ? (
           <div className='grid grid-cols-3'>
-            {books.map((book) => (
+            {filteredSearch.map((book) => (
               <div className='pt-6'>
                 <Cards key={book.id} data={book} />
               </div>
             ))}
           </div>
-        </div>
-      ) : (
-        <div className='grid h-screen place-items-center text-2xl'>
-          your book list is empty, begin adding?
-        </div>
-      )}
+        ) : (
+          <div className='grid h-screen place-items-center text-2xl'>
+            your book list is empty, begin adding?
+          </div>
+        )}
+      </div>
     </Layout>
   )
 }

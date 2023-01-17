@@ -3,7 +3,7 @@ import { Hero, Layout, Features } from '../components'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className='dark:bg-gray-800 dark:text-white'>
       <Layout>
         <Hero />
         <Features />

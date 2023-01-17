@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps, NextPage } from 'next'
 import { Book } from '../../utils/types/types'
-import { Input, Layout } from '../../components'
+import { Layout } from '../../components'
 import { Cards } from '../../components'
 
 //TODO: Once Next13 has a stable build, migrate to Next13 data fetching
@@ -22,32 +22,36 @@ const Books: NextPage<BooksProps> = ({ books }) => {
   )
   console.log(search)
   return (
-    <Layout>
-      <div className='container mx-auto my-4'>
-        <h1 className='text-4xl'>your books</h1>
-        <div className='flex flex-col my-4'>
-          <label className='mb-2'>filter by name or title</label>
-          <input
-            className='rounded-full bg-sky-200 pl-4'
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-        {books.length > 0 ? (
-          <div className='grid grid-cols-3'>
-            {filteredSearch.map((book) => (
-              <div className='pt-6'>
-                <Cards key={book.id} data={book} />
+    <div className='dark:bg-gray-800 dark:text-white'>
+      <Layout>
+        <div className='flex gap-12 container mx-auto my-4'>
+          {/* <h1 className='text-4xl'>your books</h1> */}
+          <div className='flex flex-col my-6'>
+            <label className='mb-2'>filter by name or title</label>
+            <input
+              className='rounded-full bg-sky-200 pl-4'
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          <div>
+            {books.length > 0 ? (
+              <div className='grid grid-cols-3 gap-4'>
+                {filteredSearch.map((book) => (
+                  <div className='my-6'>
+                    <Cards key={book.id} data={book} />
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className='grid h-screen place-items-center text-2xl'>
+                your book list is empty, begin adding?
+              </div>
+            )}
           </div>
-        ) : (
-          <div className='grid h-screen place-items-center text-2xl'>
-            your book list is empty, begin adding?
-          </div>
-        )}
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+    </div>
   )
 }
 

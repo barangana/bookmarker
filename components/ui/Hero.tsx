@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export const Hero = () => {
   return (
-    <div className='container mx-auto px-6 bg-sky-100'>
+    <div className='container mx-auto px-6 dark:bg-gray-800 dark:text-white'>
       <div className='grid grid-cols-2'>
         <div className='my-32 mx-32'>
           <div className='pb-12 text-xl font-semibold'>{text.hero_title}</div>
